@@ -1,0 +1,9 @@
+{
+  "description": "Aplikasi absensi Kjati (Kemenag Jember Absensi Terintegrasi) dengan fitur login berbasis NIP pegawai, Foto Selfie, check-in berbasis geolokasi dengan peta.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ],
+  "name": "KJati",
+  "majorCapabilities": []
+}
