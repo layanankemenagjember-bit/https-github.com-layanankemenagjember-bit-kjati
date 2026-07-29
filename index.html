@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
   
   <!-- Font & Style -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: #F4F7F6; color: #333; }
@@ -62,6 +62,454 @@
     .history-details { display: flex; gap: 15px; margin-top: 10px; }
     .history-thumb { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 1px solid #ddd; }
     .section-title { font-size: 16px; font-weight: 700; color: #27AE60; margin-bottom: 15px; border-bottom: 2px solid #E8F8F5; padding-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+
+    /* New Premium Islamic UI Design for Login Screen */
+    .login-container-new {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: radial-gradient(circle at 50% 50%, #0d4224 0%, #052412 100%);
+      color: #fff;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .background-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.06) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .login-main-row {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    @media (min-width: 1024px) {
+      .login-main-row {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px 80px;
+        gap: 80px;
+      }
+    }
+    .login-brand-side {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 550px;
+    }
+    @media (min-width: 1024px) {
+      .login-brand-side {
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+    .kjati-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      margin-top: 15px;
+    }
+    .login-card-premium {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      width: 100%;
+      max-width: 480px;
+      padding: 35px;
+      color: #333;
+      z-index: 5;
+    }
+    .tab-pills-new {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #f1f3f5;
+      border-radius: 12px;
+      padding: 4px;
+      margin-top: 20px;
+      border: 1px solid #e9ecef;
+    }
+    .tab-pill {
+      border: none;
+      background: none;
+      padding: 10px 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12.5px;
+      color: #495057;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .tab-pill.active {
+      background: #ffffff;
+      color: #0c3e26;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border: 1px solid #27AE60;
+    }
+    .input-grp-premium {
+      margin-top: 20px;
+    }
+    .input-grp-premium label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0c3e26;
+      margin-bottom: 6px;
+    }
+    .input-wrapper-new {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #e2e8f0;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2px 14px;
+      transition: all 0.23s;
+    }
+    .input-wrapper-new:focus-within {
+      border-color: #27AE60;
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+    }
+    .input-wrapper-new input {
+      border: none;
+      outline: none;
+      flex: 1;
+      padding: 12px 10px;
+      font-size: 14px;
+      background: transparent;
+      color: #222;
+    }
+    .btn-premium-masuk {
+      background: linear-gradient(135deg, #27AE60 0%, #1e7e43 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 15px 25px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 25px;
+      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.25);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-premium-masuk:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(39, 174, 96, 0.35);
+    }
+    .btn-premium-masuk:active {
+      transform: translateY(0);
+    }
+    .login-footer-bar {
+      background: #ffffff;
+      border-top: 1px solid #eaeaea;
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      z-index: 2;
+    }
+    .footer-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+    }
+    .mosque-silhouette {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=400&q=80') repeat-x center bottom;
+      opacity: 0.05;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .gold-separator {
+      height: 1px;
+      width: 160px;
+      background: linear-gradient(90deg, transparent, #FFD700 50%, transparent);
+      margin: 15px 0;
+      opacity: 0.6;
+    }
+    .react-native-code-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      padding: 8px 16px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+    .react-native-code-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .rn-code-box {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      white-space: pre;
+      overflow-x: auto;
+      max-height: 400px;
+      margin-top: 10px;
+      border: 1px solid #333;
+    }
+
+    /* Mobile Responsive Optimizations for Non-Scroll Viewport */
+    .mobile-brand-header {
+      display: none;
+    }
+    @media (max-width: 1023px) {
+      .mobile-brand-header {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+        align-self: center;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+      }
+      .mobile-brand-header img {
+        width: 36px;
+        height: auto;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      }
+      .mobile-brand-header h1 {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: 1.5px;
+        line-height: 1;
+        margin: 0;
+      }
+      .mobile-brand-header p {
+        font-size: 11px;
+        color: #a3f3c3;
+        font-weight: 500;
+        margin: 2px 0 0 0;
+        line-height: 1.2;
+      }
+      .mobile-brand-header .mobile-tagline {
+        font-size: 10.5px;
+        color: #edfdf4;
+        opacity: 0.9;
+        margin: 2px auto 0 auto;
+        line-height: 1.35;
+        font-weight: 400;
+        text-align: center;
+        max-width: 95%;
+      }
+      .login-brand-side {
+        display: none !important;
+      }
+      .login-main-row {
+        padding: 15px 12px !important;
+        gap: 12px !important;
+        justify-content: center !important;
+        align-content: center !important;
+        min-height: calc(100vh - 40px);
+      }
+      .login-card-premium {
+        padding: 20px 18px !important;
+        border-radius: 20px !important;
+        max-width: 400px !important;
+      }
+      .tab-pills-new {
+        margin-top: 12px !important;
+      }
+      .tab-pill {
+        padding: 6px 4px !important;
+        gap: 2px !important;
+        font-size: 11px !important;
+      }
+      .tab-pill span {
+        font-size: 11px !important;
+      }
+      .tab-pill span:first-child {
+        font-size: 14px !important;
+      }
+      .tab-pill span:last-child {
+        display: none !important; /* Hide "Pegawai", "Pendukung", "Sistem" subtexts on mobile */
+      }
+      .input-grp-premium {
+        margin-top: 12px !important;
+      }
+      .input-grp-premium label {
+        font-size: 11.5px !important;
+        margin-bottom: 4px !important;
+      }
+      .input-wrapper-new {
+        padding: 0px 10px !important;
+      }
+      .input-wrapper-new input {
+        padding: 8px 6px !important;
+        font-size: 13px !important;
+      }
+      .btn-premium-masuk {
+        margin-top: 15px !important;
+        padding: 11px 20px !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+      }
+    }
+
+    /* Biometric Face ID Styles */
+    .face-scanner-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 20px auto 15px auto;
+      border-radius: 50%;
+      border: 4px solid #0c3e26;
+      box-shadow: 0 8px 24px rgba(12, 62, 38, 0.2);
+      overflow: hidden;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .face-scanner-container.success {
+      border-color: #27AE60;
+      box-shadow: 0 8px 24px rgba(39, 174, 96, 0.4);
+      transform: scale(1.03);
+    }
+    .face-scanner-container.error {
+      border-color: #E74C3C;
+      box-shadow: 0 8px 24px rgba(231, 76, 60, 0.4);
+    }
+    .face-scanner-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+    .face-scanner-laser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #2ecc71, transparent);
+      box-shadow: 0 0 10px #2ecc71;
+      animation: laserScan 2s linear infinite;
+      pointer-events: none;
+      z-index: 3;
+    }
+    @keyframes laserScan {
+      0% { top: 0%; }
+      50% { top: 100%; }
+      100% { top: 0%; }
+    }
+    .face-scanner-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .face-scanner-bracket-tl,
+    .face-scanner-bracket-tr,
+    .face-scanner-bracket-bl,
+    .face-scanner-bracket-br {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255, 215, 0, 0.8);
+    }
+    .face-scanner-bracket-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+    .face-scanner-bracket-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+    .face-scanner-bracket-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+    .face-scanner-bracket-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+    
+    .face-scanner-target {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 110px; height: 110px;
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .face-login-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .face-login-status-badge.info {
+      background: #EBF5FB;
+      color: #2980B9;
+    }
+    .face-login-status-badge.error {
+      background: #FDEDEC;
+      color: #E74C3C;
+    }
+    .face-login-toggle-btn {
+      background: none;
+      border: 1px solid #0c3e26;
+      color: #0c3e26;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .face-login-toggle-btn:hover {
+      background: rgba(12, 62, 38, 0.05);
+    }
   </style>
   <link rel="stylesheet" href="/index.css">
 </head>
